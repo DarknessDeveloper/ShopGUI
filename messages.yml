@@ -1,0 +1,31 @@
+shops:
+    invalid-shop: "&5ShopGUI &8> &cNo configuration has been created for that shop."
+    no-permission: "&5ShopGUI &8> &cYou dont have permission to access that shop."
+    buy:
+        not-enough-money: "&5ShopGUI &8> &cYou don't have enough money."
+        not-enough-space: "&5ShopGUI &8> &cYou don't have enough inventory space."
+        purchased: "&5ShopGUI &8> &aYou purchased &c{0}x {1}x &afor &c${2}&a."
+    sell:
+        sold: "&5ShopGUI &8> &aYou sold &c{0}x {1} &afor &c${2}&a."
+        not-enough-of-item: "&5ShopGUI &8> &cYou do not have {0}x of {1}."
+items:
+    prev-page:
+        name: "&6Previous Page"
+    next-page:
+        name: "&6Next Page"
+commands:
+    no-permission: "&5ShopGUI &8> &cInsufficient Permission."
+    invalid-args: "&5ShopGUI &8> &cInvalid command arguments."
+    insufficient-args: "&5ShopGUI &8> &cNot enough arguments."
+    shopgui:
+        no-args: "&5ShopGUI &8> &cNo Arguments Specified."
+        reload:
+            success: "&5ShopGUI &8> &aSuccessfully reloaded all configs."
+        serialize:
+            no-item: "&5ShopGUI &8> &cYou are not holding an item."
+            item-already-exists: "&5ShopGUI &8> &cAn item with that name has already been serialized."
+            success: "&5ShopGUI &8> &aSuccessfully serialized an item with the name &c{0}&a."
+            error: "&5ShopGUI &8> &cAn unknown error occurred. Stacktrace printed to console."
+inventory:
+    # Cannot exceed 16 characters
+    name: "&bShop GUI"
