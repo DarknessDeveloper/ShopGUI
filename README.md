@@ -2,7 +2,7 @@
 A Minecraft (Bukkit/Spigot) Plugin Which Allows Admins To Create GUI Shops.
 
 # Spigot
-This project is not on spigot yet but will be soon.
+https://www.spigotmc.org/resources/shopgui.84944/
 
 # Dependencies
 This plugin requires Vault for its economy.
