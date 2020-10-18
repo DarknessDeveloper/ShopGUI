@@ -1,0 +1,10 @@
+shops:
+    building:
+        item-name: "&9Building Blocks"
+        material: LOG
+        amount: 13
+        data: 2
+        inventory-slot: 15
+        lore: 
+            - "&9Blocks that you use to build."
+            - "&9Left Click to Open."
