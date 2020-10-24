@@ -137,6 +137,14 @@ public class ItemShopInventory implements InventoryHolder {
 			inventory.setItem(39, prevPage);
 		}
 		
+		ItemStack goBack = new ItemStack(Material.BARRIER, 1);
+		ItemMeta goBackMeta = goBack.getItemMeta();
+		
+		goBackMeta.setDisplayName(ShopGUI.tl("&eBack to Shop List."));
+		goBack.setItemMeta(goBackMeta);
+		
+		inventory.setItem(40,  goBack);
+		
 	}
 
 	public void show() {

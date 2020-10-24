@@ -20,14 +20,17 @@ public class PurchaseInventory implements InventoryHolder {
 	private final Inventory inventory;
 	private final Player player;
 	private final ShopItem item;
-
+	private final String previousShopName;
+	
+	
 	private double pricePerUnit = 0d;
 	private double sellPrice = 0d;
 
-	public PurchaseInventory(Player player, ShopItem item) {
+	public PurchaseInventory(Player player, ShopItem item, String previousShopName) {
 		this.player = player;
 		this.item = item;
-
+		this.previousShopName = previousShopName;
+		
 		this.inventory = Bukkit.createInventory(this, 54, ShopGUI.tlf("inventory.name"));
 		this.pricePerUnit = item.getPrice() / item.getItem().getAmount();
 		this.sellPrice = item.getSellPrice();
@@ -89,9 +92,17 @@ public class PurchaseInventory implements InventoryHolder {
 		sell64Meta.setLore(Lists.newArrayList(ShopGUI.tl("&aPrice: &c" + (sellPrice / amount) * 64)));
 		sell64.setItemMeta(sell64Meta);
 
+		ItemStack goBack = new ItemStack(Material.BARRIER, 1);
+		ItemMeta goBackMeta = goBack.getItemMeta();
+		
+		goBackMeta.setDisplayName(ShopGUI.tl("&eBack to Shop."));
+		goBack.setItemMeta(goBackMeta);
+		
 		inventory.setItem(38, buyAmount);
 		inventory.setItem(39, buy64);
 
+		inventory.setItem(40, goBack);
+		
 		inventory.setItem(41, sell64);
 		inventory.setItem(42, sellAmount);
 
@@ -180,6 +191,11 @@ public class PurchaseInventory implements InventoryHolder {
 
 	private void onSellItem(Player p, ShopItem item, int amount) {
 		Bukkit.getPluginManager().callEvent(new ShopSellItemEvent(p, item, amount));
+	}
+	
+	public void backToShop() {
+		player.closeInventory();
+		new ItemShopInventory(player, previousShopName).show();
 	}
 
 	public Player getPlayer() {

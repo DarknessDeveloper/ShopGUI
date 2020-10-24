@@ -70,6 +70,13 @@ public class InventoryListener implements Listener {
 
 				return;
 			}
+			
+			if (e.getSlot() == 40) {
+				e.getWhoClicked().closeInventory();
+				new ShopInventory((Player)e.getWhoClicked(), "main", true).show();
+				
+				return;
+			}
 
 			if (e.getSlot() == 41 && e.getCurrentItem().getType().equals(Material.PAPER)) {
 				if (inv.hasNextPage())
@@ -89,7 +96,7 @@ public class InventoryListener implements Listener {
 				return;
 
 			PurchaseInventory purchaseInventory = new PurchaseInventory((Player) e.getWhoClicked(),
-					inv.getItems().get(e.getSlot()));
+					inv.getItems().get(e.getSlot()), inv.getName());
 			e.getWhoClicked().closeInventory();
 			purchaseInventory.show();
 			return;
@@ -118,6 +125,11 @@ public class InventoryListener implements Listener {
 
 			if (e.getSlot() == 39) {
 				purchaseInventory.buy(64);
+				return;
+			}
+			
+			if (e.getSlot() == 40) {
+				purchaseInventory.backToShop();
 				return;
 			}
 
