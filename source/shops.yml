@@ -1,5 +1,5 @@
 shops:
-    building:
+    blocks:
         item-name: "&9Building Blocks"
         material: LOG
         amount: 13
